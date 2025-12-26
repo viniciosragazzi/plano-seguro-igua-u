@@ -6,53 +6,62 @@
 
 @layer base {
   :root {
-    /* Navy Blue - Trust & Professionalism */
-    --background: 210 30% 98%;
-    --foreground: 220 40% 13%;
+    /* Soft, Modern Healthcare Palette */
+    --background: 240 20% 98%;
+    --foreground: 230 25% 18%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 40% 13%;
+    --card-foreground: 230 25% 18%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 40% 13%;
+    --popover-foreground: 230 25% 18%;
 
-    /* Royal Navy Blue */
-    --primary: 220 60% 25%;
+    /* Deep Navy Blue */
+    --primary: 230 55% 25%;
     --primary-foreground: 0 0% 100%;
 
-    /* Soft blue-gray */
-    --secondary: 210 25% 93%;
-    --secondary-foreground: 220 40% 20%;
+    /* Soft Blue-Gray */
+    --secondary: 230 25% 95%;
+    --secondary-foreground: 230 25% 25%;
 
-    --muted: 210 20% 96%;
-    --muted-foreground: 220 15% 45%;
+    --muted: 230 20% 96%;
+    --muted-foreground: 230 15% 50%;
 
-    /* Warm Orange - Action CTAs */
-    --accent: 25 95% 53%;
+    /* Vibrant Orange for CTAs */
+    --accent: 25 95% 55%;
     --accent-foreground: 0 0% 100%;
 
+    /* Soft Purple for accents */
+    --highlight: 255 70% 65%;
+    --highlight-foreground: 0 0% 100%;
+
     /* Success Green */
-    --success: 152 60% 42%;
+    --success: 160 60% 45%;
     --success-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 210 25% 88%;
-    --input: 210 25% 88%;
-    --ring: 220 60% 25%;
+    --border: 230 25% 90%;
+    --input: 230 25% 90%;
+    --ring: 230 55% 25%;
 
-    --radius: 0.75rem;
+    --radius: 1rem;
 
-    /* Custom tokens */
-    --gradient-hero: linear-gradient(135deg, hsl(220 60% 20%) 0%, hsl(220 55% 30%) 50%, hsl(210 50% 35%) 100%);
-    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(210 30% 98%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(25 95% 53%) 0%, hsl(30 95% 58%) 100%);
+    /* Enhanced Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(230 55% 20%) 0%, hsl(250 45% 35%) 50%, hsl(255 50% 45%) 100%);
+    --gradient-hero-soft: linear-gradient(180deg, hsl(240 30% 97%) 0%, hsl(250 40% 95%) 50%, hsl(240 20% 98%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(240 30% 99%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(25 95% 55%) 0%, hsl(35 95% 60%) 100%);
+    --gradient-purple: linear-gradient(135deg, hsl(255 70% 60%) 0%, hsl(280 60% 65%) 100%);
+    --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 100%);
     
-    --shadow-soft: 0 4px 20px -4px hsl(220 60% 25% / 0.08);
-    --shadow-card: 0 8px 30px -8px hsl(220 60% 25% / 0.12);
-    --shadow-elevated: 0 20px 50px -15px hsl(220 60% 25% / 0.15);
-    --shadow-glow: 0 0 40px hsl(25 95% 53% / 0.25);
+    /* Enhanced Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(230 55% 25% / 0.06);
+    --shadow-card: 0 8px 30px -8px hsl(230 55% 25% / 0.1);
+    --shadow-elevated: 0 25px 60px -15px hsl(230 55% 25% / 0.15);
+    --shadow-glow: 0 0 50px hsl(25 95% 55% / 0.3);
+    --shadow-purple: 0 0 40px hsl(255 70% 65% / 0.25);
 
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -69,36 +78,39 @@
   }
 
   .dark {
-    --background: 220 40% 8%;
-    --foreground: 210 30% 96%;
+    --background: 230 30% 8%;
+    --foreground: 230 20% 96%;
 
-    --card: 220 35% 12%;
-    --card-foreground: 210 30% 96%;
+    --card: 230 25% 12%;
+    --card-foreground: 230 20% 96%;
 
-    --popover: 220 35% 12%;
-    --popover-foreground: 210 30% 96%;
+    --popover: 230 25% 12%;
+    --popover-foreground: 230 20% 96%;
 
-    --primary: 210 60% 60%;
-    --primary-foreground: 220 40% 8%;
+    --primary: 230 60% 65%;
+    --primary-foreground: 230 30% 8%;
 
-    --secondary: 220 30% 18%;
-    --secondary-foreground: 210 30% 90%;
+    --secondary: 230 25% 18%;
+    --secondary-foreground: 230 20% 92%;
 
-    --muted: 220 25% 16%;
-    --muted-foreground: 210 20% 60%;
+    --muted: 230 20% 16%;
+    --muted-foreground: 230 15% 60%;
 
-    --accent: 25 95% 58%;
+    --accent: 25 95% 60%;
     --accent-foreground: 0 0% 100%;
 
-    --success: 152 55% 48%;
+    --highlight: 255 65% 70%;
+    --highlight-foreground: 0 0% 100%;
+
+    --success: 160 55% 50%;
     --success-foreground: 0 0% 100%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 220 25% 20%;
-    --input: 220 25% 20%;
-    --ring: 210 60% 60%;
+    --border: 230 20% 22%;
+    --input: 230 20% 22%;
+    --ring: 230 60% 65%;
 
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
@@ -135,12 +147,25 @@
     background: var(--gradient-hero);
   }
 
+  .gradient-hero-soft {
+    background: var(--gradient-hero-soft);
+  }
+
   .gradient-card {
     background: var(--gradient-card);
   }
 
   .gradient-accent {
     background: var(--gradient-accent);
+  }
+
+  .gradient-purple {
+    background: var(--gradient-purple);
+  }
+
+  .gradient-glass {
+    background: var(--gradient-glass);
+    backdrop-filter: blur(20px);
   }
 
   .shadow-soft {
@@ -159,8 +184,12 @@
     box-shadow: var(--shadow-glow);
   }
 
+  .shadow-purple {
+    box-shadow: var(--shadow-purple);
+  }
+
   .animate-fade-up {
-    animation: fadeUp 0.6s ease-out forwards;
+    animation: fadeUp 0.7s ease-out forwards;
   }
 
   .animate-fade-in {
@@ -175,15 +204,29 @@
     animation: float 6s ease-in-out infinite;
   }
 
+  .animate-float-delayed {
+    animation: float 6s ease-in-out 2s infinite;
+  }
+
   .animate-pulse-soft {
-    animation: pulseSoft 2s ease-in-out infinite;
+    animation: pulseSoft 3s ease-in-out infinite;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
   }
 }
 
 @keyframes fadeUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(40px);
   }
   to {
     opacity: 1;
@@ -203,7 +246,7 @@
 @keyframes scaleIn {
   from {
     opacity: 0;
-    transform: scale(0.95);
+    transform: scale(0.9);
   }
   to {
     opacity: 1;
@@ -216,15 +259,28 @@
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-10px);
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
 @keyframes pulseSoft {
   0%, 100% {
     opacity: 1;
+    transform: scale(1);
   }
   50% {
-    opacity: 0.7;
+    opacity: 0.85;
+    transform: scale(1.02);
   }
 }

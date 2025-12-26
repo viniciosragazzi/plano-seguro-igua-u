@@ -41,7 +41,10 @@ const faqs = [
 
 const FAQSection = () => {
   return (
-    <section id="faq" className="py-20 bg-muted/30">
+    <section id="faq" className="py-24 bg-background relative overflow-hidden">
+      {/* Background Decoration */}
+      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-3xl translate-y-1/2" />
+      
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto">
           {/* Header */}
@@ -64,13 +67,13 @@ const FAQSection = () => {
               <AccordionItem
                 key={index}
                 value={`item-${index}`}
-                className="bg-card border border-border rounded-xl px-6 data-[state=open]:shadow-card transition-shadow animate-fade-up"
+                className="bg-card border border-border rounded-2xl px-6 data-[state=open]:shadow-card data-[state=open]:border-highlight/30 transition-all animate-fade-up"
                 style={{ animationDelay: `${index * 0.05}s` }}
               >
-                <AccordionTrigger className="text-left font-heading font-semibold text-foreground hover:no-underline py-5">
+                <AccordionTrigger className="text-left font-heading font-semibold text-foreground hover:no-underline py-5 [&[data-state=open]]:text-highlight">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground pb-5">
+                <AccordionContent className="text-muted-foreground pb-5 leading-relaxed">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>

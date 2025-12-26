@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { User, Users, Wallet, ArrowRight, CheckCircle2, Phone } from "lucide-react";
+import { User, Users, Wallet, ArrowRight, CheckCircle2, Phone, Calendar, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toast } from "@/hooks/use-toast";
 
@@ -62,7 +62,7 @@ const SimulatorSection = () => {
           <div
             className={`w-10 h-10 rounded-full flex items-center justify-center font-semibold transition-all duration-300 ${
               step >= s
-                ? "bg-primary text-primary-foreground"
+                ? "gradient-purple text-highlight-foreground shadow-purple"
                 : "bg-secondary text-muted-foreground"
             }`}
           >
@@ -70,8 +70,8 @@ const SimulatorSection = () => {
           </div>
           {s < 3 && (
             <div
-              className={`w-16 h-1 mx-2 rounded transition-colors duration-300 ${
-                step > s ? "bg-primary" : "bg-secondary"
+              className={`w-12 md:w-16 h-1 mx-2 rounded-full transition-colors duration-300 ${
+                step > s ? "bg-highlight" : "bg-secondary"
               }`}
             />
           )}
@@ -93,8 +93,8 @@ const SimulatorSection = () => {
       onClick={onClick}
       className={`w-full p-4 rounded-xl border-2 text-left transition-all duration-300 hover:shadow-card ${
         selected
-          ? "border-primary bg-primary/5 shadow-soft"
-          : "border-border bg-card hover:border-primary/50"
+          ? "border-highlight bg-highlight/5 shadow-purple"
+          : "border-border bg-card hover:border-highlight/40"
       }`}
     >
       {children}
@@ -102,30 +102,60 @@ const SimulatorSection = () => {
   );
 
   return (
-    <section id="simulador" className="py-20 bg-muted/50">
-      <div className="container mx-auto px-4">
-        <div className="max-w-2xl mx-auto">
-          {/* Header */}
-          <div className="text-center mb-8 animate-fade-up">
+    <section id="simulador" className="py-24 gradient-hero-soft relative overflow-hidden">
+      {/* Background Decorations */}
+      <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-highlight/10 rounded-full blur-3xl -translate-y-1/2" />
+      <div className="absolute bottom-0 right-0 w-[300px] h-[300px] bg-accent/10 rounded-full blur-3xl translate-y-1/2" />
+      
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-12 items-start">
+          {/* Left Side - Info */}
+          <div className="animate-fade-up lg:sticky lg:top-8">
+            <div className="inline-flex items-center gap-2 bg-accent/10 text-accent px-4 py-2 rounded-full text-sm font-medium mb-4">
+              <Calendar className="w-4 h-4" />
+              Agende sua Consulta
+            </div>
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Simulador de Planos em{" "}
-              <span className="text-accent">3 Passos</span>
+              Agende sua consulta{" "}
+              <span className="text-highlight">hoje!</span>
             </h2>
-            <p className="text-muted-foreground">
-              Descubra o plano ideal para você em menos de 1 minuto
+            <p className="text-muted-foreground mb-8 max-w-md">
+              Nossa equipe está aqui para te ajudar. Nós nos preocupamos com a sua saúde e entraremos em contato em até 24 horas.
             </p>
+
+            {/* Contact Preview */}
+            <div className="space-y-4">
+              <div className="flex items-center gap-4 p-4 bg-card rounded-2xl border border-border">
+                <div className="w-12 h-12 bg-highlight/10 rounded-xl flex items-center justify-center">
+                  <Phone className="w-5 h-5 text-highlight" />
+                </div>
+                <div>
+                  <p className="text-sm text-muted-foreground">Telefone</p>
+                  <p className="font-semibold text-foreground">(21) 99999-9999</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-4 p-4 bg-card rounded-2xl border border-border">
+                <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center">
+                  <Mail className="w-5 h-5 text-accent" />
+                </div>
+                <div>
+                  <p className="text-sm text-muted-foreground">Email</p>
+                  <p className="font-semibold text-foreground">contato@ddplanos.com.br</p>
+                </div>
+              </div>
+            </div>
           </div>
 
-          {/* Simulator Card */}
-          <div className="bg-card rounded-3xl shadow-elevated p-8 md:p-10 animate-scale-in">
+          {/* Right Side - Form */}
+          <div className="bg-card rounded-3xl shadow-elevated p-8 md:p-10 border border-border animate-scale-in">
             {step < 4 && <StepIndicator />}
 
             {/* Step 1: Age */}
             {step === 1 && (
               <div className="space-y-6 animate-fade-in">
                 <div className="text-center mb-6">
-                  <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                    <User className="w-8 h-8 text-primary" />
+                  <div className="w-16 h-16 gradient-purple rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-purple">
+                    <User className="w-8 h-8 text-highlight-foreground" />
                   </div>
                   <h3 className="font-heading text-xl font-semibold text-foreground">
                     Qual a sua faixa etária?
@@ -164,8 +194,8 @@ const SimulatorSection = () => {
             {step === 2 && (
               <div className="space-y-6 animate-fade-in">
                 <div className="text-center mb-6">
-                  <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                    <Users className="w-8 h-8 text-primary" />
+                  <div className="w-16 h-16 gradient-purple rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-purple">
+                    <Users className="w-8 h-8 text-highlight-foreground" />
                   </div>
                   <h3 className="font-heading text-xl font-semibold text-foreground">
                     Quantas pessoas no plano?
@@ -214,8 +244,8 @@ const SimulatorSection = () => {
             {step === 3 && (
               <div className="space-y-6 animate-fade-in">
                 <div className="text-center mb-6">
-                  <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                    <Wallet className="w-8 h-8 text-primary" />
+                  <div className="w-16 h-16 gradient-accent rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-glow">
+                    <Wallet className="w-8 h-8 text-accent-foreground" />
                   </div>
                   <h3 className="font-heading text-xl font-semibold text-foreground">
                     Qual seu orçamento mensal?
@@ -247,14 +277,14 @@ const SimulatorSection = () => {
                     placeholder="Seu nome completo"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                    className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-highlight focus:border-transparent transition-all"
                   />
                   <input
                     type="tel"
                     placeholder="(21) 99999-9999"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                    className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-highlight focus:border-transparent transition-all"
                   />
                 </div>
 
